@@ -23,7 +23,6 @@
         <module>globalmall-product</module>
         <module>globalmall-ware</module>
         <module>globalmall-common</module>
-        <module>demo</module>
     </modules>
 
     <properties>
