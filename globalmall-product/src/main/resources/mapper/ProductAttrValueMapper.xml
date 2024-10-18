@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.globalmall.product.generator.mapper.ProductAttrValueMapper">
+
+    <resultMap id="BaseResultMap" type="com.globalmall.product.generator.entity.ProductAttrValue">
+            <id property="id" column="id" jdbcType="BIGINT"/>
+            <result property="spuId" column="spu_id" jdbcType="BIGINT"/>
+            <result property="attrId" column="attr_id" jdbcType="BIGINT"/>
+            <result property="attrName" column="attr_name" jdbcType="VARCHAR"/>
+            <result property="attrValue" column="attr_value" jdbcType="VARCHAR"/>
+            <result property="attrSort" column="attr_sort" jdbcType="INTEGER"/>
+            <result property="quickShow" column="quick_show" jdbcType="TINYINT"/>
+            <result property="createTime" column="create_time" jdbcType="TIMESTAMP"/>
+            <result property="updateTime" column="update_time" jdbcType="TIMESTAMP"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        id,spu_id,attr_id,
+        attr_name,attr_value,attr_sort,
+        quick_show,create_time,update_time
+    </sql>
+</mapper>
