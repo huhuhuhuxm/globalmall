@@ -2,8 +2,8 @@ package com.globalmall.order.generator.service.impl;
 
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.globalmall.order.generator.entity.PaymentInfo;
-import com.globalmall.order.generator.service.PaymentInfoService;
 import com.globalmall.order.generator.mapper.PaymentInfoMapper;
+import com.globalmall.order.generator.service.PaymentInfoService;
 import org.springframework.stereotype.Service;
 
 /**
@@ -13,7 +13,7 @@ import org.springframework.stereotype.Service;
 */
 @Service
 public class PaymentInfoServiceImpl extends ServiceImpl<PaymentInfoMapper, PaymentInfo>
-    implements PaymentInfoService{
+    implements PaymentInfoService {
 
 }
 

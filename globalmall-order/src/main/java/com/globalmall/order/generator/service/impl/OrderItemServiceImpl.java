@@ -2,8 +2,9 @@ package com.globalmall.order.generator.service.impl;
 
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.globalmall.order.generator.entity.OrderItem;
-import com.globalmall.order.generator.service.OrderItemService;
 import com.globalmall.order.generator.mapper.OrderItemMapper;
+import com.globalmall.order.generator.service.OrderItemService;
+import org.apache.dubbo.config.annotation.DubboService;
 import org.springframework.stereotype.Service;
 
 /**
@@ -12,8 +13,9 @@ import org.springframework.stereotype.Service;
 * @createDate 2024-10-18 12:51:33
 */
 @Service
+@DubboService
 public class OrderItemServiceImpl extends ServiceImpl<OrderItemMapper, OrderItem>
-    implements OrderItemService{
+    implements OrderItemService {
 
 }
 

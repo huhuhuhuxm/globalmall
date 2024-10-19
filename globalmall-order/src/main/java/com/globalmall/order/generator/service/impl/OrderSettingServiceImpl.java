@@ -2,8 +2,8 @@ package com.globalmall.order.generator.service.impl;
 
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.globalmall.order.generator.entity.OrderSetting;
-import com.globalmall.order.generator.service.OrderSettingService;
 import com.globalmall.order.generator.mapper.OrderSettingMapper;
+import com.globalmall.order.generator.service.OrderSettingService;
 import org.springframework.stereotype.Service;
 
 /**
@@ -13,7 +13,7 @@ import org.springframework.stereotype.Service;
 */
 @Service
 public class OrderSettingServiceImpl extends ServiceImpl<OrderSettingMapper, OrderSetting>
-    implements OrderSettingService{
+    implements OrderSettingService {
 
 }
 

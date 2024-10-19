@@ -1,7 +1,7 @@
 package com.globalmall.order.generator.service;
 
-import com.globalmall.order.generator.entity.OrderReturnApply;
 import com.baomidou.mybatisplus.extension.service.IService;
+import com.globalmall.order.generator.entity.OrderReturnApply;
 
 /**
 * @author hxm

@@ -2,8 +2,8 @@ package com.globalmall.order.generator.service.impl;
 
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.globalmall.order.generator.entity.OrderReturnReason;
-import com.globalmall.order.generator.service.OrderReturnReasonService;
 import com.globalmall.order.generator.mapper.OrderReturnReasonMapper;
+import com.globalmall.order.generator.service.OrderReturnReasonService;
 import org.springframework.stereotype.Service;
 
 /**
@@ -13,7 +13,7 @@ import org.springframework.stereotype.Service;
 */
 @Service
 public class OrderReturnReasonServiceImpl extends ServiceImpl<OrderReturnReasonMapper, OrderReturnReason>
-    implements OrderReturnReasonService{
+    implements OrderReturnReasonService {
 
 }
 
