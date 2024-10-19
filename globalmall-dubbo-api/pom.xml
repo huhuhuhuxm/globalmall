@@ -10,6 +10,10 @@
     </parent>
 
     <artifactId>globalmall-dubbo-api</artifactId>
+    <packaging>pom</packaging>
+    <modules>
+        <module>dubbo-coupon-api</module>
+    </modules>
 
     <dependencies>
         <!-- mybatis-plus -->
