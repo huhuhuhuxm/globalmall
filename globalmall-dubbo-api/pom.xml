@@ -16,6 +16,7 @@
         <module>dubbo-member-api</module>
         <module>dubbo-order-api</module>
         <module>dubbo-product-api</module>
+        <module>dubbo-ware-api</module>
     </modules>
 
     <dependencies>

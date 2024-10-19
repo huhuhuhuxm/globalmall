@@ -4,17 +4,18 @@ import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
-import java.io.Serializable;
-import java.util.Date;
 import lombok.Data;
 
+import java.io.Serializable;
+import java.util.Date;
+
 /**
- * 仓库信息
- * @TableName wms_ware_info
+ * 商品库存
+ * @TableName wms_ware_sku
  */
-@TableName(value ="wms_ware_info")
+@TableName(value ="wms_ware_sku")
 @Data
-public class WareInfo implements Serializable {
+public class WareSku implements Serializable {
     /**
      * id
      */
@@ -22,19 +23,29 @@ public class WareInfo implements Serializable {
     private Long id;
 
     /**
-     * 仓库名
+     * sku_id
      */
-    private String name;
+    private Long skuId;
 
     /**
-     * 仓库地址
+     * 仓库id
      */
-    private String address;
+    private Long wareId;
 
     /**
-     * 区域编码
+     * 库存数
      */
-    private String areacode;
+    private Integer stock;
+
+    /**
+     * sku_name
+     */
+    private String skuName;
+
+    /**
+     * 锁定库存
+     */
+    private Integer stockLocked;
 
     /**
      * 创建时间
@@ -60,11 +71,13 @@ public class WareInfo implements Serializable {
         if (getClass() != that.getClass()) {
             return false;
         }
-        WareInfo other = (WareInfo) that;
+        WareSku other = (WareSku) that;
         return (this.getId() == null ? other.getId() == null : this.getId().equals(other.getId()))
-            && (this.getName() == null ? other.getName() == null : this.getName().equals(other.getName()))
-            && (this.getAddress() == null ? other.getAddress() == null : this.getAddress().equals(other.getAddress()))
-            && (this.getAreacode() == null ? other.getAreacode() == null : this.getAreacode().equals(other.getAreacode()))
+            && (this.getSkuId() == null ? other.getSkuId() == null : this.getSkuId().equals(other.getSkuId()))
+            && (this.getWareId() == null ? other.getWareId() == null : this.getWareId().equals(other.getWareId()))
+            && (this.getStock() == null ? other.getStock() == null : this.getStock().equals(other.getStock()))
+            && (this.getSkuName() == null ? other.getSkuName() == null : this.getSkuName().equals(other.getSkuName()))
+            && (this.getStockLocked() == null ? other.getStockLocked() == null : this.getStockLocked().equals(other.getStockLocked()))
             && (this.getCreateTime() == null ? other.getCreateTime() == null : this.getCreateTime().equals(other.getCreateTime()))
             && (this.getUpdateTime() == null ? other.getUpdateTime() == null : this.getUpdateTime().equals(other.getUpdateTime()));
     }
@@ -74,9 +87,11 @@ public class WareInfo implements Serializable {
         final int prime = 31;
         int result = 1;
         result = prime * result + ((getId() == null) ? 0 : getId().hashCode());
-        result = prime * result + ((getName() == null) ? 0 : getName().hashCode());
-        result = prime * result + ((getAddress() == null) ? 0 : getAddress().hashCode());
-        result = prime * result + ((getAreacode() == null) ? 0 : getAreacode().hashCode());
+        result = prime * result + ((getSkuId() == null) ? 0 : getSkuId().hashCode());
+        result = prime * result + ((getWareId() == null) ? 0 : getWareId().hashCode());
+        result = prime * result + ((getStock() == null) ? 0 : getStock().hashCode());
+        result = prime * result + ((getSkuName() == null) ? 0 : getSkuName().hashCode());
+        result = prime * result + ((getStockLocked() == null) ? 0 : getStockLocked().hashCode());
         result = prime * result + ((getCreateTime() == null) ? 0 : getCreateTime().hashCode());
         result = prime * result + ((getUpdateTime() == null) ? 0 : getUpdateTime().hashCode());
         return result;
@@ -89,9 +104,11 @@ public class WareInfo implements Serializable {
         sb.append(" [");
         sb.append("Hash = ").append(hashCode());
         sb.append(", id=").append(id);
-        sb.append(", name=").append(name);
-        sb.append(", address=").append(address);
-        sb.append(", areacode=").append(areacode);
+        sb.append(", skuId=").append(skuId);
+        sb.append(", wareId=").append(wareId);
+        sb.append(", stock=").append(stock);
+        sb.append(", skuName=").append(skuName);
+        sb.append(", stockLocked=").append(stockLocked);
         sb.append(", createTime=").append(createTime);
         sb.append(", updateTime=").append(updateTime);
         sb.append(", serialVersionUID=").append(serialVersionUID);

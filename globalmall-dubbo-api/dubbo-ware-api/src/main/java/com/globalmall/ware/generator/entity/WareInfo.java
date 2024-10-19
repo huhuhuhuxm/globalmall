@@ -4,17 +4,18 @@ import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
-import java.io.Serializable;
-import java.util.Date;
 import lombok.Data;
 
+import java.io.Serializable;
+import java.util.Date;
+
 /**
- * 库存工作单
- * @TableName wms_ware_order_task_detail
+ * 仓库信息
+ * @TableName wms_ware_info
  */
-@TableName(value ="wms_ware_order_task_detail")
+@TableName(value ="wms_ware_info")
 @Data
-public class WareOrderTaskDetail implements Serializable {
+public class WareInfo implements Serializable {
     /**
      * id
      */
@@ -22,34 +23,19 @@ public class WareOrderTaskDetail implements Serializable {
     private Long id;
 
     /**
-     * sku_id
+     * 仓库名
      */
-    private Long skuId;
+    private String name;
 
     /**
-     * sku_name
+     * 仓库地址
      */
-    private String skuName;
+    private String address;
 
     /**
-     * 购买个数
+     * 区域编码
      */
-    private Integer skuNum;
-
-    /**
-     * 工作单id
-     */
-    private Long taskId;
-
-    /**
-     * 仓库id
-     */
-    private Long wareId;
-
-    /**
-     * 1-已锁定  2-已解锁  3-扣减
-     */
-    private Integer lockStatus;
+    private String areacode;
 
     /**
      * 创建时间
@@ -75,14 +61,11 @@ public class WareOrderTaskDetail implements Serializable {
         if (getClass() != that.getClass()) {
             return false;
         }
-        WareOrderTaskDetail other = (WareOrderTaskDetail) that;
+        WareInfo other = (WareInfo) that;
         return (this.getId() == null ? other.getId() == null : this.getId().equals(other.getId()))
-            && (this.getSkuId() == null ? other.getSkuId() == null : this.getSkuId().equals(other.getSkuId()))
-            && (this.getSkuName() == null ? other.getSkuName() == null : this.getSkuName().equals(other.getSkuName()))
-            && (this.getSkuNum() == null ? other.getSkuNum() == null : this.getSkuNum().equals(other.getSkuNum()))
-            && (this.getTaskId() == null ? other.getTaskId() == null : this.getTaskId().equals(other.getTaskId()))
-            && (this.getWareId() == null ? other.getWareId() == null : this.getWareId().equals(other.getWareId()))
-            && (this.getLockStatus() == null ? other.getLockStatus() == null : this.getLockStatus().equals(other.getLockStatus()))
+            && (this.getName() == null ? other.getName() == null : this.getName().equals(other.getName()))
+            && (this.getAddress() == null ? other.getAddress() == null : this.getAddress().equals(other.getAddress()))
+            && (this.getAreacode() == null ? other.getAreacode() == null : this.getAreacode().equals(other.getAreacode()))
             && (this.getCreateTime() == null ? other.getCreateTime() == null : this.getCreateTime().equals(other.getCreateTime()))
             && (this.getUpdateTime() == null ? other.getUpdateTime() == null : this.getUpdateTime().equals(other.getUpdateTime()));
     }
@@ -92,12 +75,9 @@ public class WareOrderTaskDetail implements Serializable {
         final int prime = 31;
         int result = 1;
         result = prime * result + ((getId() == null) ? 0 : getId().hashCode());
-        result = prime * result + ((getSkuId() == null) ? 0 : getSkuId().hashCode());
-        result = prime * result + ((getSkuName() == null) ? 0 : getSkuName().hashCode());
-        result = prime * result + ((getSkuNum() == null) ? 0 : getSkuNum().hashCode());
-        result = prime * result + ((getTaskId() == null) ? 0 : getTaskId().hashCode());
-        result = prime * result + ((getWareId() == null) ? 0 : getWareId().hashCode());
-        result = prime * result + ((getLockStatus() == null) ? 0 : getLockStatus().hashCode());
+        result = prime * result + ((getName() == null) ? 0 : getName().hashCode());
+        result = prime * result + ((getAddress() == null) ? 0 : getAddress().hashCode());
+        result = prime * result + ((getAreacode() == null) ? 0 : getAreacode().hashCode());
         result = prime * result + ((getCreateTime() == null) ? 0 : getCreateTime().hashCode());
         result = prime * result + ((getUpdateTime() == null) ? 0 : getUpdateTime().hashCode());
         return result;
@@ -110,12 +90,9 @@ public class WareOrderTaskDetail implements Serializable {
         sb.append(" [");
         sb.append("Hash = ").append(hashCode());
         sb.append(", id=").append(id);
-        sb.append(", skuId=").append(skuId);
-        sb.append(", skuName=").append(skuName);
-        sb.append(", skuNum=").append(skuNum);
-        sb.append(", taskId=").append(taskId);
-        sb.append(", wareId=").append(wareId);
-        sb.append(", lockStatus=").append(lockStatus);
+        sb.append(", name=").append(name);
+        sb.append(", address=").append(address);
+        sb.append(", areacode=").append(areacode);
         sb.append(", createTime=").append(createTime);
         sb.append(", updateTime=").append(updateTime);
         sb.append(", serialVersionUID=").append(serialVersionUID);

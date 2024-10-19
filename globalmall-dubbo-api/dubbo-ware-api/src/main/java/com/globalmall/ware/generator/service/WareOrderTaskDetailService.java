@@ -1,7 +1,7 @@
 package com.globalmall.ware.generator.service;
 
-import com.globalmall.ware.generator.entity.WareOrderTaskDetail;
 import com.baomidou.mybatisplus.extension.service.IService;
+import com.globalmall.ware.generator.entity.WareOrderTaskDetail;
 
 /**
 * @author hxm

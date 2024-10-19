@@ -4,47 +4,59 @@ import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
-import java.io.Serializable;
-import java.util.Date;
 import lombok.Data;
 
+import java.io.Serializable;
+import java.math.BigDecimal;
+import java.util.Date;
+
 /**
- * 商品库存
- * @TableName wms_ware_sku
+ * 采购信息
+ * @TableName wms_purchase
  */
-@TableName(value ="wms_ware_sku")
+@TableName(value ="wms_purchase")
 @Data
-public class WareSku implements Serializable {
+public class Purchase implements Serializable {
     /**
-     * id
+     *
      */
     @TableId(type = IdType.AUTO)
     private Long id;
 
     /**
-     * sku_id
+     *
      */
-    private Long skuId;
+    private Long assigneeId;
 
     /**
-     * 仓库id
+     *
+     */
+    private String assigneeName;
+
+    /**
+     *
+     */
+    private String phone;
+
+    /**
+     *
+     */
+    private Integer priority;
+
+    /**
+     *
+     */
+    private Integer status;
+
+    /**
+     *
      */
     private Long wareId;
 
     /**
-     * 库存数
+     *
      */
-    private Integer stock;
-
-    /**
-     * sku_name
-     */
-    private String skuName;
-
-    /**
-     * 锁定库存
-     */
-    private Integer stockLocked;
+    private BigDecimal amount;
 
     /**
      * 创建时间
@@ -70,13 +82,15 @@ public class WareSku implements Serializable {
         if (getClass() != that.getClass()) {
             return false;
         }
-        WareSku other = (WareSku) that;
+        Purchase other = (Purchase) that;
         return (this.getId() == null ? other.getId() == null : this.getId().equals(other.getId()))
-            && (this.getSkuId() == null ? other.getSkuId() == null : this.getSkuId().equals(other.getSkuId()))
+            && (this.getAssigneeId() == null ? other.getAssigneeId() == null : this.getAssigneeId().equals(other.getAssigneeId()))
+            && (this.getAssigneeName() == null ? other.getAssigneeName() == null : this.getAssigneeName().equals(other.getAssigneeName()))
+            && (this.getPhone() == null ? other.getPhone() == null : this.getPhone().equals(other.getPhone()))
+            && (this.getPriority() == null ? other.getPriority() == null : this.getPriority().equals(other.getPriority()))
+            && (this.getStatus() == null ? other.getStatus() == null : this.getStatus().equals(other.getStatus()))
             && (this.getWareId() == null ? other.getWareId() == null : this.getWareId().equals(other.getWareId()))
-            && (this.getStock() == null ? other.getStock() == null : this.getStock().equals(other.getStock()))
-            && (this.getSkuName() == null ? other.getSkuName() == null : this.getSkuName().equals(other.getSkuName()))
-            && (this.getStockLocked() == null ? other.getStockLocked() == null : this.getStockLocked().equals(other.getStockLocked()))
+            && (this.getAmount() == null ? other.getAmount() == null : this.getAmount().equals(other.getAmount()))
             && (this.getCreateTime() == null ? other.getCreateTime() == null : this.getCreateTime().equals(other.getCreateTime()))
             && (this.getUpdateTime() == null ? other.getUpdateTime() == null : this.getUpdateTime().equals(other.getUpdateTime()));
     }
@@ -86,11 +100,13 @@ public class WareSku implements Serializable {
         final int prime = 31;
         int result = 1;
         result = prime * result + ((getId() == null) ? 0 : getId().hashCode());
-        result = prime * result + ((getSkuId() == null) ? 0 : getSkuId().hashCode());
+        result = prime * result + ((getAssigneeId() == null) ? 0 : getAssigneeId().hashCode());
+        result = prime * result + ((getAssigneeName() == null) ? 0 : getAssigneeName().hashCode());
+        result = prime * result + ((getPhone() == null) ? 0 : getPhone().hashCode());
+        result = prime * result + ((getPriority() == null) ? 0 : getPriority().hashCode());
+        result = prime * result + ((getStatus() == null) ? 0 : getStatus().hashCode());
         result = prime * result + ((getWareId() == null) ? 0 : getWareId().hashCode());
-        result = prime * result + ((getStock() == null) ? 0 : getStock().hashCode());
-        result = prime * result + ((getSkuName() == null) ? 0 : getSkuName().hashCode());
-        result = prime * result + ((getStockLocked() == null) ? 0 : getStockLocked().hashCode());
+        result = prime * result + ((getAmount() == null) ? 0 : getAmount().hashCode());
         result = prime * result + ((getCreateTime() == null) ? 0 : getCreateTime().hashCode());
         result = prime * result + ((getUpdateTime() == null) ? 0 : getUpdateTime().hashCode());
         return result;
@@ -103,11 +119,13 @@ public class WareSku implements Serializable {
         sb.append(" [");
         sb.append("Hash = ").append(hashCode());
         sb.append(", id=").append(id);
-        sb.append(", skuId=").append(skuId);
+        sb.append(", assigneeId=").append(assigneeId);
+        sb.append(", assigneeName=").append(assigneeName);
+        sb.append(", phone=").append(phone);
+        sb.append(", priority=").append(priority);
+        sb.append(", status=").append(status);
         sb.append(", wareId=").append(wareId);
-        sb.append(", stock=").append(stock);
-        sb.append(", skuName=").append(skuName);
-        sb.append(", stockLocked=").append(stockLocked);
+        sb.append(", amount=").append(amount);
         sb.append(", createTime=").append(createTime);
         sb.append(", updateTime=").append(updateTime);
         sb.append(", serialVersionUID=").append(serialVersionUID);

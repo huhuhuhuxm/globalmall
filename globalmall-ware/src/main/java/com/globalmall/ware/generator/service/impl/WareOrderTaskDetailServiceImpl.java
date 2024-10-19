@@ -2,8 +2,8 @@ package com.globalmall.ware.generator.service.impl;
 
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.globalmall.ware.generator.entity.WareOrderTaskDetail;
-import com.globalmall.ware.generator.service.WareOrderTaskDetailService;
 import com.globalmall.ware.generator.mapper.WareOrderTaskDetailMapper;
+import com.globalmall.ware.generator.service.WareOrderTaskDetailService;
 import org.springframework.stereotype.Service;
 
 /**
@@ -13,7 +13,7 @@ import org.springframework.stereotype.Service;
 */
 @Service
 public class WareOrderTaskDetailServiceImpl extends ServiceImpl<WareOrderTaskDetailMapper, WareOrderTaskDetail>
-    implements WareOrderTaskDetailService{
+    implements WareOrderTaskDetailService {
 
 }
 
