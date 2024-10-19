@@ -4,17 +4,18 @@ import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
-import java.io.Serializable;
-import java.util.Date;
 import lombok.Data;
 
+import java.io.Serializable;
+import java.util.Date;
+
 /**
- * 积分变化历史记录
- * @TableName ums_integration_change_history
+ * 成长值变化历史记录
+ * @TableName ums_growth_change_history
  */
-@TableName(value ="ums_integration_change_history")
+@TableName(value ="ums_growth_change_history")
 @Data
-public class IntegrationChangeHistory implements Serializable {
+public class GrowthChangeHistory implements Serializable {
     /**
      * id
      */
@@ -27,7 +28,7 @@ public class IntegrationChangeHistory implements Serializable {
     private Long memberId;
 
     /**
-     * 变化的值
+     * 改变的值（正负计数）
      */
     private Integer changeCount;
 
@@ -37,9 +38,9 @@ public class IntegrationChangeHistory implements Serializable {
     private String note;
 
     /**
-     * 来源[0->购物；1->管理员修改;2->活动]
+     * 积分来源[0-购物，1-管理员修改]
      */
-    private Integer sourceTyoe;
+    private Integer sourceType;
 
     /**
      * 创建时间
@@ -65,12 +66,12 @@ public class IntegrationChangeHistory implements Serializable {
         if (getClass() != that.getClass()) {
             return false;
         }
-        IntegrationChangeHistory other = (IntegrationChangeHistory) that;
+        GrowthChangeHistory other = (GrowthChangeHistory) that;
         return (this.getId() == null ? other.getId() == null : this.getId().equals(other.getId()))
             && (this.getMemberId() == null ? other.getMemberId() == null : this.getMemberId().equals(other.getMemberId()))
             && (this.getChangeCount() == null ? other.getChangeCount() == null : this.getChangeCount().equals(other.getChangeCount()))
             && (this.getNote() == null ? other.getNote() == null : this.getNote().equals(other.getNote()))
-            && (this.getSourceTyoe() == null ? other.getSourceTyoe() == null : this.getSourceTyoe().equals(other.getSourceTyoe()))
+            && (this.getSourceType() == null ? other.getSourceType() == null : this.getSourceType().equals(other.getSourceType()))
             && (this.getCreateTime() == null ? other.getCreateTime() == null : this.getCreateTime().equals(other.getCreateTime()))
             && (this.getUpdateTime() == null ? other.getUpdateTime() == null : this.getUpdateTime().equals(other.getUpdateTime()));
     }
@@ -83,7 +84,7 @@ public class IntegrationChangeHistory implements Serializable {
         result = prime * result + ((getMemberId() == null) ? 0 : getMemberId().hashCode());
         result = prime * result + ((getChangeCount() == null) ? 0 : getChangeCount().hashCode());
         result = prime * result + ((getNote() == null) ? 0 : getNote().hashCode());
-        result = prime * result + ((getSourceTyoe() == null) ? 0 : getSourceTyoe().hashCode());
+        result = prime * result + ((getSourceType() == null) ? 0 : getSourceType().hashCode());
         result = prime * result + ((getCreateTime() == null) ? 0 : getCreateTime().hashCode());
         result = prime * result + ((getUpdateTime() == null) ? 0 : getUpdateTime().hashCode());
         return result;
@@ -99,7 +100,7 @@ public class IntegrationChangeHistory implements Serializable {
         sb.append(", memberId=").append(memberId);
         sb.append(", changeCount=").append(changeCount);
         sb.append(", note=").append(note);
-        sb.append(", sourceTyoe=").append(sourceTyoe);
+        sb.append(", sourceType=").append(sourceType);
         sb.append(", createTime=").append(createTime);
         sb.append(", updateTime=").append(updateTime);
         sb.append(", serialVersionUID=").append(serialVersionUID);

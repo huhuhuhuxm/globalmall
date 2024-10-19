@@ -2,8 +2,8 @@ package com.globalmall.member.generator.service.impl;
 
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.globalmall.member.generator.entity.MemberCollectSubject;
-import com.globalmall.member.generator.service.MemberCollectSubjectService;
 import com.globalmall.member.generator.mapper.MemberCollectSubjectMapper;
+import com.globalmall.member.generator.service.MemberCollectSubjectService;
 import org.springframework.stereotype.Service;
 
 /**
@@ -13,7 +13,7 @@ import org.springframework.stereotype.Service;
 */
 @Service
 public class MemberCollectSubjectServiceImpl extends ServiceImpl<MemberCollectSubjectMapper, MemberCollectSubject>
-    implements MemberCollectSubjectService{
+    implements MemberCollectSubjectService {
 
 }
 

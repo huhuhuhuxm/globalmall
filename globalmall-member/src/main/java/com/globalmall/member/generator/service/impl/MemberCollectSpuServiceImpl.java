@@ -2,8 +2,8 @@ package com.globalmall.member.generator.service.impl;
 
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.globalmall.member.generator.entity.MemberCollectSpu;
-import com.globalmall.member.generator.service.MemberCollectSpuService;
 import com.globalmall.member.generator.mapper.MemberCollectSpuMapper;
+import com.globalmall.member.generator.service.MemberCollectSpuService;
 import org.springframework.stereotype.Service;
 
 /**
@@ -13,7 +13,7 @@ import org.springframework.stereotype.Service;
 */
 @Service
 public class MemberCollectSpuServiceImpl extends ServiceImpl<MemberCollectSpuMapper, MemberCollectSpu>
-    implements MemberCollectSpuService{
+    implements MemberCollectSpuService {
 
 }
 

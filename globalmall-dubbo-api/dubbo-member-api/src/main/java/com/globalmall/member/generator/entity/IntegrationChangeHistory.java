@@ -4,42 +4,43 @@ import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
-import java.io.Serializable;
-import java.util.Date;
 import lombok.Data;
 
+import java.io.Serializable;
+import java.util.Date;
+
 /**
- * 会员收藏的商品
- * @TableName ums_member_collect_spu
+ * 积分变化历史记录
+ * @TableName ums_integration_change_history
  */
-@TableName(value ="ums_member_collect_spu")
+@TableName(value ="ums_integration_change_history")
 @Data
-public class MemberCollectSpu implements Serializable {
+public class IntegrationChangeHistory implements Serializable {
     /**
      * id
      */
-    @TableId
+    @TableId(type = IdType.AUTO)
     private Long id;
 
     /**
-     * 会员id
+     * member_id
      */
     private Long memberId;
 
     /**
-     * spu_id
+     * 变化的值
      */
-    private Long spuId;
+    private Integer changeCount;
 
     /**
-     * spu_name
+     * 备注
      */
-    private String spuName;
+    private String note;
 
     /**
-     * spu_img
+     * 来源[0->购物；1->管理员修改;2->活动]
      */
-    private String spuImg;
+    private Integer sourceTyoe;
 
     /**
      * 创建时间
@@ -65,12 +66,12 @@ public class MemberCollectSpu implements Serializable {
         if (getClass() != that.getClass()) {
             return false;
         }
-        MemberCollectSpu other = (MemberCollectSpu) that;
+        IntegrationChangeHistory other = (IntegrationChangeHistory) that;
         return (this.getId() == null ? other.getId() == null : this.getId().equals(other.getId()))
             && (this.getMemberId() == null ? other.getMemberId() == null : this.getMemberId().equals(other.getMemberId()))
-            && (this.getSpuId() == null ? other.getSpuId() == null : this.getSpuId().equals(other.getSpuId()))
-            && (this.getSpuName() == null ? other.getSpuName() == null : this.getSpuName().equals(other.getSpuName()))
-            && (this.getSpuImg() == null ? other.getSpuImg() == null : this.getSpuImg().equals(other.getSpuImg()))
+            && (this.getChangeCount() == null ? other.getChangeCount() == null : this.getChangeCount().equals(other.getChangeCount()))
+            && (this.getNote() == null ? other.getNote() == null : this.getNote().equals(other.getNote()))
+            && (this.getSourceTyoe() == null ? other.getSourceTyoe() == null : this.getSourceTyoe().equals(other.getSourceTyoe()))
             && (this.getCreateTime() == null ? other.getCreateTime() == null : this.getCreateTime().equals(other.getCreateTime()))
             && (this.getUpdateTime() == null ? other.getUpdateTime() == null : this.getUpdateTime().equals(other.getUpdateTime()));
     }
@@ -81,9 +82,9 @@ public class MemberCollectSpu implements Serializable {
         int result = 1;
         result = prime * result + ((getId() == null) ? 0 : getId().hashCode());
         result = prime * result + ((getMemberId() == null) ? 0 : getMemberId().hashCode());
-        result = prime * result + ((getSpuId() == null) ? 0 : getSpuId().hashCode());
-        result = prime * result + ((getSpuName() == null) ? 0 : getSpuName().hashCode());
-        result = prime * result + ((getSpuImg() == null) ? 0 : getSpuImg().hashCode());
+        result = prime * result + ((getChangeCount() == null) ? 0 : getChangeCount().hashCode());
+        result = prime * result + ((getNote() == null) ? 0 : getNote().hashCode());
+        result = prime * result + ((getSourceTyoe() == null) ? 0 : getSourceTyoe().hashCode());
         result = prime * result + ((getCreateTime() == null) ? 0 : getCreateTime().hashCode());
         result = prime * result + ((getUpdateTime() == null) ? 0 : getUpdateTime().hashCode());
         return result;
@@ -97,9 +98,9 @@ public class MemberCollectSpu implements Serializable {
         sb.append("Hash = ").append(hashCode());
         sb.append(", id=").append(id);
         sb.append(", memberId=").append(memberId);
-        sb.append(", spuId=").append(spuId);
-        sb.append(", spuName=").append(spuName);
-        sb.append(", spuImg=").append(spuImg);
+        sb.append(", changeCount=").append(changeCount);
+        sb.append(", note=").append(note);
+        sb.append(", sourceTyoe=").append(sourceTyoe);
         sb.append(", createTime=").append(createTime);
         sb.append(", updateTime=").append(updateTime);
         sb.append(", serialVersionUID=").append(serialVersionUID);

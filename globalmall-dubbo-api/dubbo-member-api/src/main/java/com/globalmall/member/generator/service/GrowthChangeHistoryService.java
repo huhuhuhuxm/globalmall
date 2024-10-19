@@ -1,7 +1,7 @@
 package com.globalmall.member.generator.service;
 
-import com.globalmall.member.generator.entity.GrowthChangeHistory;
 import com.baomidou.mybatisplus.extension.service.IService;
+import com.globalmall.member.generator.entity.GrowthChangeHistory;
 
 /**
 * @author hxm

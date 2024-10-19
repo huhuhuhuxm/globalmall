@@ -13,6 +13,7 @@
     <packaging>pom</packaging>
     <modules>
         <module>dubbo-coupon-api</module>
+        <module>dubbo-member-api</module>
     </modules>
 
     <dependencies>

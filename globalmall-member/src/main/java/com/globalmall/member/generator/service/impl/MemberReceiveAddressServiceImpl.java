@@ -2,8 +2,8 @@ package com.globalmall.member.generator.service.impl;
 
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.globalmall.member.generator.entity.MemberReceiveAddress;
-import com.globalmall.member.generator.service.MemberReceiveAddressService;
 import com.globalmall.member.generator.mapper.MemberReceiveAddressMapper;
+import com.globalmall.member.generator.service.MemberReceiveAddressService;
 import org.springframework.stereotype.Service;
 
 /**
@@ -13,7 +13,7 @@ import org.springframework.stereotype.Service;
 */
 @Service
 public class MemberReceiveAddressServiceImpl extends ServiceImpl<MemberReceiveAddressMapper, MemberReceiveAddress>
-    implements MemberReceiveAddressService{
+    implements MemberReceiveAddressService {
 
 }
 
