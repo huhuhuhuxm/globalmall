@@ -2,8 +2,8 @@ package com.globalmall.product.generator.service.impl;
 
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.globalmall.product.generator.entity.Attr;
-import com.globalmall.product.generator.service.AttrService;
 import com.globalmall.product.generator.mapper.AttrMapper;
+import com.globalmall.product.generator.service.AttrService;
 import org.springframework.stereotype.Service;
 
 /**
@@ -13,7 +13,7 @@ import org.springframework.stereotype.Service;
 */
 @Service
 public class AttrServiceImpl extends ServiceImpl<AttrMapper, Attr>
-    implements AttrService{
+    implements AttrService {
 
 }
 

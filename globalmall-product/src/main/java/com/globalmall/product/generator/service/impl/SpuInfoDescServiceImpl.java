@@ -2,8 +2,8 @@ package com.globalmall.product.generator.service.impl;
 
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.globalmall.product.generator.entity.SpuInfoDesc;
-import com.globalmall.product.generator.service.SpuInfoDescService;
 import com.globalmall.product.generator.mapper.SpuInfoDescMapper;
+import com.globalmall.product.generator.service.SpuInfoDescService;
 import org.springframework.stereotype.Service;
 
 /**
@@ -13,7 +13,7 @@ import org.springframework.stereotype.Service;
 */
 @Service
 public class SpuInfoDescServiceImpl extends ServiceImpl<SpuInfoDescMapper, SpuInfoDesc>
-    implements SpuInfoDescService{
+    implements SpuInfoDescService {
 
 }
 

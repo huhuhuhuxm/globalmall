@@ -57,13 +57,25 @@ spring:
           # 合并多个连接池的监控数据，默认false
           merge-sql: false
 
+# dubbo配置
 dubbo:
   application:
+    name: dubbo-globalmall-product # 应用名称
     qos-enable: false
-  registry:
-    address: nacos://${nacos.address:localhost}:8848?username=nacos&password=nacos
   provider:
-    token: false
+    token: true
+  protocol:
+    name: dubbo
+    port: -1 # Dubbo 服务端口 默认端口号是 20880  -1：则是自动分配
+  registry:
+    address: nacos://127.0.0.1:8848 # Dubbo 服务注册中心地址
+  #    group: DUBBO_GROUP
+  config-center:
+    address: nacos://127.0.0.1:8848 # Dubbo 配置中心地址
+  #    group: DUBBO_GROUP
+  metadata-report:
+    address: nacos://127.0.0.1:8848 # Dubbo 元数据中心地址
+#    group: DUBBO_GROUP
 
 # mybatis-plus配置
 mybatis-plus:

@@ -29,6 +29,19 @@
             <scope>provided</scope>
         </dependency>
 
+        <!--dubbo-product-api-->
+        <dependency>
+            <groupId>com.globalmall</groupId>
+            <artifactId>dubbo-product-api</artifactId>
+            <version>1.0.0</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>com.baomidou</groupId>
+                    <artifactId>mybatis-plus-spring-boot3-starter</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+
     </dependencies>
 
 </project>

@@ -2,8 +2,8 @@ package com.globalmall.product.generator.service.impl;
 
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.globalmall.product.generator.entity.CategoryBrandRelation;
-import com.globalmall.product.generator.service.CategoryBrandRelationService;
 import com.globalmall.product.generator.mapper.CategoryBrandRelationMapper;
+import com.globalmall.product.generator.service.CategoryBrandRelationService;
 import org.springframework.stereotype.Service;
 
 /**
@@ -13,7 +13,7 @@ import org.springframework.stereotype.Service;
 */
 @Service
 public class CategoryBrandRelationServiceImpl extends ServiceImpl<CategoryBrandRelationMapper, CategoryBrandRelation>
-    implements CategoryBrandRelationService{
+    implements CategoryBrandRelationService {
 
 }
 

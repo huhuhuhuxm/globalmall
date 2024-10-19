@@ -2,8 +2,8 @@ package com.globalmall.product.generator.service.impl;
 
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.globalmall.product.generator.entity.CommentReplay;
-import com.globalmall.product.generator.service.CommentReplayService;
 import com.globalmall.product.generator.mapper.CommentReplayMapper;
+import com.globalmall.product.generator.service.CommentReplayService;
 import org.springframework.stereotype.Service;
 
 /**
@@ -13,7 +13,7 @@ import org.springframework.stereotype.Service;
 */
 @Service
 public class CommentReplayServiceImpl extends ServiceImpl<CommentReplayMapper, CommentReplay>
-    implements CommentReplayService{
+    implements CommentReplayService {
 
 }
 

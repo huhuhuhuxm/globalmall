@@ -2,8 +2,8 @@ package com.globalmall.product.generator.service.impl;
 
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.globalmall.product.generator.entity.SkuSaleAttrValue;
-import com.globalmall.product.generator.service.SkuSaleAttrValueService;
 import com.globalmall.product.generator.mapper.SkuSaleAttrValueMapper;
+import com.globalmall.product.generator.service.SkuSaleAttrValueService;
 import org.springframework.stereotype.Service;
 
 /**
@@ -13,7 +13,7 @@ import org.springframework.stereotype.Service;
 */
 @Service
 public class SkuSaleAttrValueServiceImpl extends ServiceImpl<SkuSaleAttrValueMapper, SkuSaleAttrValue>
-    implements SkuSaleAttrValueService{
+    implements SkuSaleAttrValueService {
 
 }
 
