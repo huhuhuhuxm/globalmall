@@ -21,6 +21,12 @@
             <groupId>com.globalmall</groupId>
             <artifactId>globalmall-common</artifactId>
             <version>1.0.0</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>com.baomidou</groupId>
+                    <artifactId>mybatis-plus-spring-boot3-starter</artifactId>
+                </exclusion>
+            </exclusions>
         </dependency>
 
         <!--lombok-->
@@ -29,6 +35,14 @@
             <artifactId>lombok</artifactId>
             <scope>provided</scope>
         </dependency>
+
+        <dependency>
+            <groupId>com.globalmall</groupId>
+            <artifactId>globalmall-dubbo-api</artifactId>
+            <version>1.0.0</version>
+        </dependency>
+
+
     </dependencies>
 
 

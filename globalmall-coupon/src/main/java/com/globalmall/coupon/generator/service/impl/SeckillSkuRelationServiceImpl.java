@@ -2,8 +2,8 @@ package com.globalmall.coupon.generator.service.impl;
 
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.globalmall.coupon.generator.entity.SeckillSkuRelation;
-import com.globalmall.coupon.generator.service.SeckillSkuRelationService;
 import com.globalmall.coupon.generator.mapper.SeckillSkuRelationMapper;
+import com.globalmall.coupon.generator.service.SeckillSkuRelationService;
 import org.springframework.stereotype.Service;
 
 /**
@@ -13,7 +13,7 @@ import org.springframework.stereotype.Service;
 */
 @Service
 public class SeckillSkuRelationServiceImpl extends ServiceImpl<SeckillSkuRelationMapper, SeckillSkuRelation>
-    implements SeckillSkuRelationService{
+    implements SeckillSkuRelationService {
 
 }
 

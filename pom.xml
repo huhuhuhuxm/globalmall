@@ -23,6 +23,7 @@
         <module>globalmall-product</module>
         <module>globalmall-ware</module>
         <module>globalmall-common</module>
+        <module>globalmall-dubbo-api</module>
     </modules>
 
     <properties>
@@ -36,6 +37,7 @@
         <dubbo-pom.version>3.2.10</dubbo-pom.version>
         <lombok.version>1.18.34</lombok.version>
         <druid.version>1.2.21</druid.version>
+        <kotlin-stdlib.version>1.8.21</kotlin-stdlib.version>
     </properties>
     <dependencyManagement>
         <dependencies>
@@ -76,13 +78,13 @@
                 <scope>import</scope>
             </dependency>
 
-            <dependency>
-                <groupId>org.apache.dubbo</groupId>
-                <artifactId>dubbo-bom</artifactId>
-                <version>3.3.0</version>
-                <type>pom</type>
-                <scope>import</scope>
-            </dependency>
+<!--            <dependency>-->
+<!--                <groupId>org.apache.dubbo</groupId>-->
+<!--                <artifactId>dubbo-bom</artifactId>-->
+<!--                <version>3.3.0</version>-->
+<!--                <type>pom</type>-->
+<!--                <scope>import</scope>-->
+<!--            </dependency>-->
 
             <!--mybatis-plus 持久层-->
             <dependency>
@@ -112,17 +114,33 @@
                 <version>${druid.version}</version>
             </dependency>
 
+            <!-- kotlin-stdlib 解决Failed to register interface for security check报错 -->
+            <dependency>
+                <groupId>org.jetbrains.kotlin</groupId>
+                <artifactId>kotlin-stdlib</artifactId>
+                <version>${kotlin-stdlib.version}</version>
+            </dependency>
+
         </dependencies>
     </dependencyManagement>
 
 
     <dependencies>
 
+        <!-- springBoot-test -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
         </dependency>
+
+        <!--lombok-->
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <scope>provided</scope>
+        </dependency>
+
 
     </dependencies>
 

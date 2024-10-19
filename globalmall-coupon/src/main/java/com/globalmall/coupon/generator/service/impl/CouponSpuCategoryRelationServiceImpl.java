@@ -2,8 +2,8 @@ package com.globalmall.coupon.generator.service.impl;
 
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.globalmall.coupon.generator.entity.CouponSpuCategoryRelation;
-import com.globalmall.coupon.generator.service.CouponSpuCategoryRelationService;
 import com.globalmall.coupon.generator.mapper.CouponSpuCategoryRelationMapper;
+import com.globalmall.coupon.generator.service.CouponSpuCategoryRelationService;
 import org.springframework.stereotype.Service;
 
 /**
@@ -13,7 +13,7 @@ import org.springframework.stereotype.Service;
 */
 @Service
 public class CouponSpuCategoryRelationServiceImpl extends ServiceImpl<CouponSpuCategoryRelationMapper, CouponSpuCategoryRelation>
-    implements CouponSpuCategoryRelationService{
+    implements CouponSpuCategoryRelationService {
 
 }
 

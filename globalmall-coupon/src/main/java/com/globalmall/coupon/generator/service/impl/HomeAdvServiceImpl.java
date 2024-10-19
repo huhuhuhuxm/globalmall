@@ -2,8 +2,8 @@ package com.globalmall.coupon.generator.service.impl;
 
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.globalmall.coupon.generator.entity.HomeAdv;
-import com.globalmall.coupon.generator.service.HomeAdvService;
 import com.globalmall.coupon.generator.mapper.HomeAdvMapper;
+import com.globalmall.coupon.generator.service.HomeAdvService;
 import org.springframework.stereotype.Service;
 
 /**
@@ -13,7 +13,7 @@ import org.springframework.stereotype.Service;
 */
 @Service
 public class HomeAdvServiceImpl extends ServiceImpl<HomeAdvMapper, HomeAdv>
-    implements HomeAdvService{
+    implements HomeAdvService {
 
 }
 

@@ -2,8 +2,8 @@ package com.globalmall.coupon.generator.service.impl;
 
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.globalmall.coupon.generator.entity.MemberPrice;
-import com.globalmall.coupon.generator.service.MemberPriceService;
 import com.globalmall.coupon.generator.mapper.MemberPriceMapper;
+import com.globalmall.coupon.generator.service.MemberPriceService;
 import org.springframework.stereotype.Service;
 
 /**
@@ -13,7 +13,7 @@ import org.springframework.stereotype.Service;
 */
 @Service
 public class MemberPriceServiceImpl extends ServiceImpl<MemberPriceMapper, MemberPrice>
-    implements MemberPriceService{
+    implements MemberPriceService {
 
 }
 

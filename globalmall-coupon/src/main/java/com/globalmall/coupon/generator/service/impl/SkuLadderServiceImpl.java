@@ -2,8 +2,8 @@ package com.globalmall.coupon.generator.service.impl;
 
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.globalmall.coupon.generator.entity.SkuLadder;
-import com.globalmall.coupon.generator.service.SkuLadderService;
 import com.globalmall.coupon.generator.mapper.SkuLadderMapper;
+import com.globalmall.coupon.generator.service.SkuLadderService;
 import org.springframework.stereotype.Service;
 
 /**
@@ -13,7 +13,7 @@ import org.springframework.stereotype.Service;
 */
 @Service
 public class SkuLadderServiceImpl extends ServiceImpl<SkuLadderMapper, SkuLadder>
-    implements SkuLadderService{
+    implements SkuLadderService {
 
 }
 

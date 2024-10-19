@@ -2,8 +2,8 @@ package com.globalmall.coupon.generator.service.impl;
 
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.globalmall.coupon.generator.entity.SpuBounds;
-import com.globalmall.coupon.generator.service.SpuBoundsService;
 import com.globalmall.coupon.generator.mapper.SpuBoundsMapper;
+import com.globalmall.coupon.generator.service.SpuBoundsService;
 import org.springframework.stereotype.Service;
 
 /**
@@ -13,7 +13,7 @@ import org.springframework.stereotype.Service;
 */
 @Service
 public class SpuBoundsServiceImpl extends ServiceImpl<SpuBoundsMapper, SpuBounds>
-    implements SpuBoundsService{
+    implements SpuBoundsService {
 
 }
 

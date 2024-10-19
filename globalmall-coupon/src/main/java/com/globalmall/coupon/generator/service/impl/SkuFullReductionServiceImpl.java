@@ -2,8 +2,8 @@ package com.globalmall.coupon.generator.service.impl;
 
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.globalmall.coupon.generator.entity.SkuFullReduction;
-import com.globalmall.coupon.generator.service.SkuFullReductionService;
 import com.globalmall.coupon.generator.mapper.SkuFullReductionMapper;
+import com.globalmall.coupon.generator.service.SkuFullReductionService;
 import org.springframework.stereotype.Service;
 
 /**
@@ -13,7 +13,7 @@ import org.springframework.stereotype.Service;
 */
 @Service
 public class SkuFullReductionServiceImpl extends ServiceImpl<SkuFullReductionMapper, SkuFullReduction>
-    implements SkuFullReductionService{
+    implements SkuFullReductionService {
 
 }
 

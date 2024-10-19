@@ -64,14 +64,20 @@ spring:
 #  provider:
 #    token: false
 
-#dubbo:
-#  application:
-#    name: globalmall-coupon
-#  registry:
-#    address: acos://${nacos.address:localhost}:8848?username=nacos&password=nacos #注册中心配置
-#  protocol:
-#    name: dubbo # 确保使用了 Dubbo 协议
-#    port: 20880
+dubbo:
+  application:
+    name: dubbo-coupon # 应用名称
+  provider:
+    token: false
+  protocol:
+    name: dubbo
+    port: -1 # Dubbo 服务端口 默认端口号是 20880  -1：则是自动分配
+  registry:
+    address: nacos://127.0.0.1:8848 # Dubbo 服务注册中心地址
+  config-center:
+    address: nacos://127.0.0.1:8848 # Dubbo 配置中心地址
+  metadata-report:
+    address: nacos://127.0.0.1:8848 # Dubbo 元数据中心地址
 
 # mybatis-plus配置
 mybatis-plus:
