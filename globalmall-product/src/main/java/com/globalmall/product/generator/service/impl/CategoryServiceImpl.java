@@ -14,6 +14,7 @@ import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Comparator;
 import java.util.List;
 
 
@@ -47,7 +48,9 @@ public class CategoryServiceImpl extends ServiceImpl<CategoryMapper, Category>
                     BeanUtils.copyProperties(item, categoryTreeVO);
                     categoryTreeVO.setChildren(this.getChildren(item.getCatId(), categoryList));
                     return categoryTreeVO;
-                }).toList(); // TODO 这边可能需要排序但是 排序字段的值都为0暂时先不用排序
+                })
+                .sorted(Comparator.comparingInt(Category::getSort))
+                .toList();
         return CategoryTreeList;
     }
 
@@ -65,7 +68,9 @@ public class CategoryServiceImpl extends ServiceImpl<CategoryMapper, Category>
                     BeanUtils.copyProperties(item, categoryTreeVO);
                     categoryTreeVO.setChildren(this.getChildren(item.getCatId(), categoryList));
                     return categoryTreeVO;
-                }).toList(); // TODO 这边可能需要排序但是 排序字段的值都为0暂时先不用排序
+                })
+                .sorted(Comparator.comparingInt(Category::getSort))
+                .toList();
     }
 }
 
