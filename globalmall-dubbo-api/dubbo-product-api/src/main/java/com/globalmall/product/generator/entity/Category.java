@@ -5,6 +5,8 @@ import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
 import lombok.Data;
+import lombok.NoArgsConstructor;
+import lombok.experimental.SuperBuilder;
 
 import java.io.Serializable;
 import java.util.Date;
@@ -15,6 +17,8 @@ import java.util.Date;
  */
 @TableName(value ="pms_category")
 @Data
+//@SuperBuilder // 解决子类和父类的 Builder 模式
+//@NoArgsConstructor
 public class Category implements Serializable {
     /**
      * 分类id
