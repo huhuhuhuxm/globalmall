@@ -34,7 +34,7 @@ public class CategoryController {
      * @return
      */
     @GetMapping("/list/tree")
-    public Result list() {
+    public Result getCategoryTreeList() {
         List<CategoryTreeVO> categoryList = categoryService.listWithTree();
         return Result.success(categoryList);
     }
