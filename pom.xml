@@ -16,6 +16,7 @@
         <module>globalmall-product</module>
         <module>globalmall-ware</module>
         <module>globalmall-common</module>
+        <module>globalmall-gateway</module>
         <module>globalmall-dubbo-api</module>
     </modules>
 

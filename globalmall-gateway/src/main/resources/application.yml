@@ -1,0 +1,59 @@
+server:
+  port: 5666 # 端口号
+spring:
+  application:
+    name: globalmall-gateway # 会员服务
+  cloud:
+    nacos:
+      config:
+        server-addr: localhost:8848
+      discovery:
+        server-addr: localhost:8848
+    gateway:
+      routes:
+        # 商品服务
+        - id: globalmall-product # 路由id，自定义，只唯一即可
+          uri: lb://globalmall-product # 路由的目标地址，lb就是负载均衡，后面跟着服务名称
+          predicates: # 路由断言，判断请求是否符合规则
+            - Path=/product-api/** # 路径断言，判断路径是否是以/product-api开头，如果是则符合
+          filters:
+            - StripPrefix=1
+        # 订单服务
+        - id: globalmall-order
+          uri: lb://globalmall-order
+          predicates:
+            - Path=/order-api/**
+          filters:
+            - StripPrefix=1
+        # 会员服务
+        - id: globalmall-member
+          uri: lb://globalmall-member
+          predicates:
+            - Path=/member-api/**
+          filters:
+            - StripPrefix=1
+        # 仓储服务
+        - id: globalmall-ware
+          uri: lb://globalmall-ware
+          predicates:
+            - Path=/ware-api/**
+          filters:
+            - StripPrefix=1
+      globalcors: # 全局的跨域处理
+        add-to-simple-url-handler-mapping: true # 解决options请求被拦截问题
+        corsConfigurations:
+          '[/**]':
+            allowedOrigins: # 允许哪些网站的跨域请求
+              - "http://localhost:8090" #这边写前端请求地址 TODO 到时候更换
+            allowedMethods: # 允许的跨域ajax的请求方式
+              - "GET"
+              - "POST"
+              - "DELETE"
+              - "PUT"
+              - "OPTIONS"
+            allowedHeaders: "*" # 允许在请求中携带的头信息
+            allowCredentials: true # 是否允许携带cookie
+            maxAge: 360000 # 这次跨域检测的有效期
+logging:
+  level:
+    org.springframework.cloud.gateway: DEBUG

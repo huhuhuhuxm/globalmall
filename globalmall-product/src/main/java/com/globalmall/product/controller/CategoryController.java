@@ -23,7 +23,7 @@ import java.util.List;
  */
 @Slf4j
 @RestController
-@RequestMapping("/product/category")
+@RequestMapping("/product/v1/category")
 @FieldDefaults(level = AccessLevel.PRIVATE, makeFinal = true)
 @RequiredArgsConstructor(onConstructor = @__(@Autowired))
 public class CategoryController {
@@ -34,7 +34,7 @@ public class CategoryController {
      * @return
      */
     @GetMapping("/list/tree")
-    public Result getCategoryTreeList() {
+    public Result<List<CategoryTreeVO>> getCategoryTreeList() {
         List<CategoryTreeVO> categoryList = categoryService.listWithTree();
         return Result.success(categoryList);
     }

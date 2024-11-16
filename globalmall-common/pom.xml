@@ -39,10 +39,10 @@
         </dependency>
 
         <!-- nacos注册依赖 -->
-<!--        <dependency>
+        <dependency>
             <groupId>com.alibaba.cloud</groupId>
             <artifactId>spring-cloud-starter-alibaba-nacos-discovery</artifactId>
-        </dependency>-->
+        </dependency>
 
         <!-- nacos配置依赖 -->
         <dependency>
