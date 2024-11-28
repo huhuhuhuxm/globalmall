@@ -68,13 +68,13 @@ dubbo:
     port: -1 # Dubbo 服务端口 默认端口号是 20880  -1：则是自动分配
   registry:
     address: nacos://127.0.0.1:8848?username=nacos&password=nacos # Dubbo 服务注册中心地址
-#    group: DUBBO_GROUP
+    group: DUBBO_GROUP
   config-center:
     address: nacos://127.0.0.1:8848?username=nacos&password=nacos # Dubbo 配置中心地址
-#    group: DUBBO_GROUP
+    group: DUBBO_GROUP
   metadata-report:
     address: nacos://127.0.0.1:8848?username=nacos&password=nacos # Dubbo 元数据中心地址
-#    group: DUBBO_GROUP
+    group: DUBBO_GROUP
 
 
 # mybatis-plus配置

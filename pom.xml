@@ -18,6 +18,7 @@
         <module>globalmall-common</module>
         <module>globalmall-gateway</module>
         <module>globalmall-dubbo-api</module>
+        <module>globalmall-user</module>
     </modules>
 
     <properties>

@@ -1,8 +1,8 @@
 server:
-  port: 5674 # 端口号
+  port: 5675 # 端口号
 spring:
   application:
-    name: globalmall-ware # 仓储服务
+    name: globalmall-user # 用户服务
   cloud:
     nacos:
       config:
@@ -11,7 +11,7 @@ spring:
         server-addr: localhost:8848
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://localhost:3306/gulimall_wms?useSSL=false&autoReconnect=true&characterEncoding=utf8
+    url: jdbc:mysql://localhost:3306/gulimall_uas?useSSL=false&autoReconnect=true&characterEncoding=utf8
     username: root
     password: 2019dahucun
     type: com.alibaba.druid.pool.DruidDataSource
@@ -56,27 +56,6 @@ spring:
           slow-sql-millis: 5000
           # 合并多个连接池的监控数据，默认false
           merge-sql: false
-
-# dubbo配置
-dubbo:
-  application:
-    name: dubbo-globalmall-ware # 应用名称
-    qos-enable: false
-  provider:
-    token: true
-  protocol:
-    name: dubbo
-    port: -1 # Dubbo 服务端口 默认端口号是 20880  -1：则是自动分配
-  registry:
-    address: nacos://127.0.0.1:8848 # Dubbo 服务注册中心地址
-    group: DUBBO_GROUP
-  config-center:
-    address: nacos://127.0.0.1:8848 # Dubbo 配置中心地址
-    group: DUBBO_GROUP
-  metadata-report:
-    address: nacos://127.0.0.1:8848 # Dubbo 元数据中心地址
-    group: DUBBO_GROUP
-
 # mybatis-plus配置
 mybatis-plus:
   configuration:
