@@ -30,8 +30,9 @@ public class GlobalException extends RuntimeException {
      * @param resultCodeEnum
      * @param cause
      */
-    public GlobalException(ResultCodeEnum resultCodeEnum, Throwable cause) {
-        super(resultCodeEnum.getMessage(), cause);
+    public GlobalException(ResultCodeEnum resultCodeEnum) {
+//        super(resultCodeEnum.getMessage(), cause);
+        super(resultCodeEnum.getMessage());
         this.code = resultCodeEnum.getCode();
     }
 }

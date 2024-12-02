@@ -67,6 +67,6 @@ mybatis-plus:
 mall:
   jwt:
     # 设置jwt过期时间
-    expire: 7200000 // 两小时
+    expire: 7200000 # 两小时
     # 设置加密用户名
     user-name: "GlobalMall"

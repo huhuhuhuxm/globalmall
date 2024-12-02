@@ -2,18 +2,18 @@
 <!DOCTYPE mapper
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.globalmall.user.generator.mapper.UasUserRoleMapper">
+<mapper namespace="com.globalmall.user.generator.mapper.RolePermissionMapper">
 
-    <resultMap id="BaseResultMap" type="com.globalmall.user.generator.entity.UasUserRole">
-            <id property="id" column="id" jdbcType="INTEGER"/>
-            <result property="userId" column="user_id" jdbcType="INTEGER"/>
-            <result property="roleId" column="role_id" jdbcType="INTEGER"/>
+    <resultMap id="BaseResultMap" type="com.globalmall.user.generator.entity.RolePermission">
+            <id property="id" column="id" jdbcType="BIGINT"/>
+            <result property="roleId" column="role_id" jdbcType="BIGINT"/>
+            <result property="permissionId" column="permission_id" jdbcType="BIGINT"/>
             <result property="createTime" column="create_time" jdbcType="TIMESTAMP"/>
             <result property="updateTime" column="update_time" jdbcType="TIMESTAMP"/>
     </resultMap>
 
     <sql id="Base_Column_List">
-        id,user_id,role_id,
+        id,role_id,permission_id,
         create_time,update_time
     </sql>
 </mapper>
