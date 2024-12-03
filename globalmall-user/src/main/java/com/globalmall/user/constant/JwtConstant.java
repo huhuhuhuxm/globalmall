@@ -10,7 +10,7 @@ public class JwtConstant {
     // 密钥
     public static final String JWT_SECRET = "S/4AN9IsSRUC~{0c4]y#$F2XbV8^`#a14vawn<~Kr@(D%3TF-p1s/h{Y9k7y((rR";
 
-    // 默认有效期
+    // 默认有效期 七天
     public static final long JWT_DEFAULT_EXPIRE = 1000 * 60 * 60 * 24 * 7L;
 
     // id

@@ -9,7 +9,7 @@ import org.springframework.stereotype.Service;
 /**
 * @author hxm
 * @description 针对表【uas_role_permission(角色权限映射表，存储角色与权限的多对多关系)】的数据库操作Service实现
-* @createDate 2024-12-01 23:01:31
+* @createDate 2024-12-03 13:36:33
 */
 @Service
 public class RolePermissionServiceImpl extends ServiceImpl<RolePermissionMapper, RolePermission>

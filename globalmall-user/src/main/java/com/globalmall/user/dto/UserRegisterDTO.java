@@ -10,6 +10,6 @@ import lombok.Data;
  */
 @Data
 public class UserRegisterDTO extends UserLoginDTO {
-    // 用户类型
+    // 用户类型 0: 管理员 2：商家 3：普通用户
     private int type;
 }

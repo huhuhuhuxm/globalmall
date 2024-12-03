@@ -6,16 +6,15 @@ import com.globalmall.result.ResultCodeEnum;
 import com.globalmall.user.dto.UserLoginDTO;
 import com.globalmall.user.generator.service.UserService;
 import com.globalmall.user.utils.CaptchaUtil;
+import com.globalmall.user.vo.CaptchaVO;
 import com.globalmall.user.vo.UserLoginVO;
+import com.globalmall.util.UUIDUtil;
 import lombok.AccessLevel;
 import lombok.RequiredArgsConstructor;
 import lombok.experimental.FieldDefaults;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 /**
  * 用户相关接口
@@ -31,7 +30,8 @@ import org.springframework.web.bind.annotation.RestController;
 public class UserController {
 
     //用户服务
-//    UserService userService;
+    UserService userService;
+
 
     /**
      * 用户登录
@@ -40,17 +40,9 @@ public class UserController {
      */
     @PostMapping("/login")
     public Result<UserLoginVO> login(@RequestBody UserLoginDTO userLoginDTO) {
-        // 1.验证验证码准确性 ⚠️这里account当做生成验证码的key！！！
-        String account = userLoginDTO.getAccount();
-        String captcha = userLoginDTO.getCaptcha();
-        boolean isValid = CaptchaUtil.validateCaptcha(account, captcha);
-        // 验证码是否有效 无效则抛出异常
-        // TODO 验证码应该存到redis
-        if (!isValid) {
-            throw new GlobalException(ResultCodeEnum.VALIDATECODE_ERROR);
-        }
-
-        return null;
+        // 封装UserLoginVO
+        UserLoginVO userLoginVO = userService.login(userLoginDTO);
+        return Result.success(userLoginVO);
     }
 
     /**
@@ -60,6 +52,26 @@ public class UserController {
     @PostMapping("/register")
     public Result register() {
         return null;
+    }
+
+    /**
+     * 生成验证码
+     * @return
+     */
+    @GetMapping("/generateCaptcha")
+    public Result<CaptchaVO> generateCaptcha() {
+        // 用uuid生成唯一标识
+        String key = UUIDUtil.generateUUID();
+        log.info("key: {}", key);
+        // 生成验证码 并返回
+        String captcha = CaptchaUtil.generateCaptcha(key);
+        log.info("captcha：{}", captcha);
+
+        //封装captchaVO
+        CaptchaVO captchaVO = new CaptchaVO();
+        captchaVO.setKey(key);
+        captchaVO.setCaptcha(captcha);
+        return Result.success(captchaVO) ;
     }
 
 }

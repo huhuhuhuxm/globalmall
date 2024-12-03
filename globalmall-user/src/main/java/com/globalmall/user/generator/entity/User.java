@@ -18,7 +18,7 @@ public class User implements Serializable {
     /**
      * 
      */
-    @TableId
+    @TableId(type = IdType.AUTO)
     private Long id;
 
     /**
@@ -27,7 +27,7 @@ public class User implements Serializable {
     private String account;
 
     /**
-     * 用户密码，建议存储哈希值
+     * 用户密码，存储MD5加密后的值
      */
     private String password;
 
@@ -42,7 +42,7 @@ public class User implements Serializable {
     private Integer status;
 
     /**
-     * 记录创建时间，自动更新
+     * 记录创建时间
      */
     private Date createTime;
 

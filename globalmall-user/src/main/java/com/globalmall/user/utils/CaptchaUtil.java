@@ -1,6 +1,7 @@
 package com.globalmall.user.utils;
 
 import com.globalmall.user.constant.CaptchaConstant;
+import com.globalmall.util.UUIDUtil;
 
 import javax.imageio.ImageIO;
 import java.awt.*;
@@ -131,7 +132,8 @@ public class CaptchaUtil {
      */
     public static void main(String[] args) {
         // 定义一个唯一的key
-        String uniqueKey =  "hxm";
+        String uniqueKey = UUIDUtil.generateUUID();
+        System.out.println(uniqueKey);
 
         // 生成验证码
         String captchaBase64= generateCaptcha(uniqueKey);

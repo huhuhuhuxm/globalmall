@@ -16,23 +16,23 @@ import lombok.Data;
 @Data
 public class Role implements Serializable {
     /**
-     * 
+     * id主键自增
      */
-    @TableId
+    @TableId(type = IdType.AUTO)
     private Long id;
 
     /**
-     * 角色名称，如管理员、普通用户
+     * 角色名称
      */
     private String name;
 
     /**
-     * 角色描述信息
+     * 角色描述
      */
     private String description;
 
     /**
-     * 记录创建时间，自动更新
+     * 记录创建时间
      */
     private Date createTime;
 

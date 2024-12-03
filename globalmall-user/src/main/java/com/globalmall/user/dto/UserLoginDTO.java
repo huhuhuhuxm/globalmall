@@ -16,4 +16,6 @@ public class UserLoginDTO {
     private String password;
     //验证码
     private String captcha;
+    // 验证码唯一标识
+    private String key;
 }

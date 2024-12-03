@@ -16,9 +16,9 @@ import lombok.Data;
 @Data
 public class Permission implements Serializable {
     /**
-     * 
+     * 权限唯一标识符
      */
-    @TableId
+    @TableId(type = IdType.AUTO)
     private Long id;
 
     /**
@@ -32,7 +32,7 @@ public class Permission implements Serializable {
     private String description;
 
     /**
-     * 记录创建时间，自动更新
+     * 记录创建时间
      */
     private Date createTime;
 

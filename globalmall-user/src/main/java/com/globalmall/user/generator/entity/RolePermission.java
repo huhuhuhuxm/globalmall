@@ -16,23 +16,23 @@ import lombok.Data;
 @Data
 public class RolePermission implements Serializable {
     /**
-     * 
+     * 映射唯一标识符
      */
-    @TableId
+    @TableId(type = IdType.AUTO)
     private Long id;
 
     /**
-     * 
+     * 角色 ID，外键，参照 ums_role 表的 id
      */
     private Long roleId;
 
     /**
-     * 
+     * 权限 ID，外键，参照 ums_permission 表的 id
      */
     private Long permissionId;
 
     /**
-     * 记录创建时间，自动更新
+     * 记录创建时间
      */
     private Date createTime;
 
