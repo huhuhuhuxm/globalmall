@@ -4,6 +4,7 @@ import com.globalmall.exception.GlobalException;
 import com.globalmall.result.Result;
 import com.globalmall.result.ResultCodeEnum;
 import com.globalmall.user.dto.UserLoginDTO;
+import com.globalmall.user.dto.UserRegisterDTO;
 import com.globalmall.user.generator.service.UserService;
 import com.globalmall.user.utils.CaptchaUtil;
 import com.globalmall.user.vo.CaptchaVO;
@@ -40,18 +41,18 @@ public class UserController {
      */
     @PostMapping("/login")
     public Result<UserLoginVO> login(@RequestBody UserLoginDTO userLoginDTO) {
-        // 封装UserLoginVO
         UserLoginVO userLoginVO = userService.login(userLoginDTO);
         return Result.success(userLoginVO);
     }
 
     /**
      * 用户注册
-     * @return
+     * @returnx
      */
     @PostMapping("/register")
-    public Result register() {
-        return null;
+    public Result register(@RequestBody UserRegisterDTO userRegisterDTO) {
+        userService.register(userRegisterDTO);
+        return Result.success(ResultCodeEnum.ACCOUNT_REGISTER_SUCCESS);
     }
 
     /**
@@ -66,7 +67,6 @@ public class UserController {
         // 生成验证码 并返回
         String captcha = CaptchaUtil.generateCaptcha(key);
         log.info("captcha：{}", captcha);
-
         //封装captchaVO
         CaptchaVO captchaVO = new CaptchaVO();
         captchaVO.setKey(key);

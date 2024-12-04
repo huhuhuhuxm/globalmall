@@ -6,6 +6,7 @@ import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.globalmall.exception.GlobalException;
 import com.globalmall.result.ResultCodeEnum;
 import com.globalmall.user.dto.UserLoginDTO;
+import com.globalmall.user.dto.UserRegisterDTO;
 import com.globalmall.user.generator.entity.User;
 import com.globalmall.user.generator.service.UserService;
 import com.globalmall.user.generator.mapper.UserMapper;
@@ -50,12 +51,8 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User>
         log.info("key: {}", key);
         String captcha = userLoginDTO.getCaptcha();
         log.info("captcha：{}", captcha);
-
-        boolean isValid = CaptchaUtil.validateCaptcha(key, captcha);
         // 验证码是否有效 无效则抛出异常
-        if (!isValid) {
-            throw new GlobalException(ResultCodeEnum.VALIDATECODE_ERROR);
-        }
+        this.validateCaptcha(key, captcha);
         // 从根据账号在数据库中查询
         LambdaQueryWrapper<User> lqw = new LambdaQueryWrapper<>();
         lqw.eq(User::getAccount, userLoginDTO.getAccount());
@@ -85,6 +82,42 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User>
         userLoginVO.setToken(token);
 
         return userLoginVO;
+    }
+
+    /**
+     * 用户注册
+     * @param userRegisterDTO
+     * @return
+     */
+    @Override
+    public boolean register(UserRegisterDTO userRegisterDTO) {
+        // 校验验证码
+        this.validateCaptcha(userRegisterDTO.getKey(), userRegisterDTO.getCaptcha());
+        // 根据account到数据库中查询是否已经注册
+        User user = userMapper.selectOne(new LambdaQueryWrapper<User>().eq(User::getAccount, userRegisterDTO.getAccount()));
+        if (user != null) {
+            throw new GlobalException(ResultCodeEnum.ACCOUNT_HAS_BEEN_REGISTERED);
+        }
+        // 封装user
+        user = new User();
+        user.setAccount(userRegisterDTO.getAccount());
+        user.setPassword(DigestUtils.md5Hex(userRegisterDTO.getPassword())); // 密码通过md5加密后存储
+        user.setType(userRegisterDTO.getType());
+        userMapper.insert(user);
+        return true;
+    }
+
+    /**
+     * 校验验证码
+     * @param key
+     * @param captcha
+     */
+    private void validateCaptcha(String key, String captcha) {
+        boolean isValid = CaptchaUtil.validateCaptcha(key, captcha);
+        // 验证码是否有效 无效则抛出异常
+        if (!isValid) {
+            throw new GlobalException(ResultCodeEnum.VALIDATECODE_ERROR);
+        }
     }
 }
 

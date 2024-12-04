@@ -27,6 +27,8 @@ public enum ResultCodeEnum {
     LOGIN_AUTH(208, "未登陆"),
     PERMISSION(209, "没有权限"),
     ACCOUNT_NOT_REGISTERED(210, "账号未注册，请注册再登录"),
+    ACCOUNT_REGISTER_SUCCESS(211, "账号注册成功，请重新登录"),
+    ACCOUNT_HAS_BEEN_REGISTERED(212, "账号已被注册"),
     ACCOUNT_ERROR(214, "账号不正确"),
     PASSWORD_ERROR(215, "密码不正确"),
     PHONE_CODE_ERROR(215, "手机验证码不正确"),

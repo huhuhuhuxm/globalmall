@@ -1,6 +1,7 @@
 package com.globalmall.user.generator.service;
 
 import com.globalmall.user.dto.UserLoginDTO;
+import com.globalmall.user.dto.UserRegisterDTO;
 import com.globalmall.user.generator.entity.User;
 import com.baomidou.mybatisplus.extension.service.IService;
 import com.globalmall.user.vo.UserLoginVO;
@@ -18,4 +19,11 @@ public interface UserService extends IService<User> {
      * @return
      */
     UserLoginVO login(UserLoginDTO userLoginDTO);
+
+    /**
+     * 用户注册
+     * @param userRegisterDTO
+     * @return
+     */
+    boolean register(UserRegisterDTO userRegisterDTO);
 }
