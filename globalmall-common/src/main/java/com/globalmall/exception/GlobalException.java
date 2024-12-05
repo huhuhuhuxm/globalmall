@@ -28,10 +28,8 @@ public class GlobalException extends RuntimeException {
     /**
      * 接受枚举类对象枚举类
      * @param resultCodeEnum
-     * @param cause
      */
     public GlobalException(ResultCodeEnum resultCodeEnum) {
-//        super(resultCodeEnum.getMessage(), cause);
         super(resultCodeEnum.getMessage());
         this.code = resultCodeEnum.getCode();
     }

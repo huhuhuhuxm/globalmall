@@ -26,7 +26,7 @@ public class GlobalExceptionHandler {
     @ExceptionHandler(Exception.class)
     public Result doException(Exception ex) {
         log.error("异常信息：{}", ex.getMessage());
-        return Result.fail(ResultCodeEnum.FAIL.getCode(), ex.getMessage());
+        return Result.fail(ResultCodeEnum.SERVICE_ERROR.getCode(), ex.getMessage());
     }
 
     /**
@@ -36,8 +36,8 @@ public class GlobalExceptionHandler {
      */
     @ExceptionHandler(GlobalException.class)
     public Result doGlobalException(GlobalException ex) {
-        log.error("异常信息：{}", ex.getMessage());
-        return Result.fail(ResultCodeEnum.FAIL.getCode(), ex.getMessage());
+        log.error("异常代码：{} 异常信息：{}", ex.getCode(), ex.getMessage());
+        return Result.fail(ex.getCode(), ex.getMessage());
     }
 
 
