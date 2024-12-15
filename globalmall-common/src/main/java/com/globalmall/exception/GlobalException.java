@@ -1,7 +1,5 @@
 package com.globalmall.exception;
 
-import com.globalmall.result.ResultCodeEnum;
-import lombok.Data;
 import lombok.Getter;
 
 /**
@@ -29,7 +27,7 @@ public class GlobalException extends RuntimeException {
      * 接受枚举类对象枚举类
      * @param resultCodeEnum
      */
-    public GlobalException(ResultCodeEnum resultCodeEnum) {
+    public <T extends IResultCode> GlobalException(T resultCodeEnum) {
         super(resultCodeEnum.getMessage());
         this.code = resultCodeEnum.getCode();
     }

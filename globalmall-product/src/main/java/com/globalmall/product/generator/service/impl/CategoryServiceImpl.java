@@ -1,7 +1,10 @@
 package com.globalmall.product.generator.service.impl;
 
-import ch.qos.logback.core.joran.util.beans.BeanUtil;
+import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
+import com.globalmall.exception.GlobalException;
+import com.globalmall.product.constant.CategoryConstant;
+import com.globalmall.product.enums.ProductResultCodeEnum;
 import com.globalmall.product.generator.entity.Category;
 import com.globalmall.product.generator.mapper.CategoryMapper;
 import com.globalmall.product.generator.service.CategoryService;
@@ -16,6 +19,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.Comparator;
 import java.util.List;
+import java.util.Optional;
 
 
 /**
@@ -52,6 +56,29 @@ public class CategoryServiceImpl extends ServiceImpl<CategoryMapper, Category>
                 .sorted(Comparator.comparingInt(Category::getSort))
                 .toList();
         return CategoryTreeList;
+    }
+
+    /**
+     * 删除某分类
+     * @param cartId
+     * @return
+     */
+    @Override
+    public boolean deleteCategory(Long cartId) {
+        // 查询数据库中是否有该分类
+        Category category = categoryMapper.selectById(cartId);
+        // 查询为空就抛出异常
+        Optional.ofNullable(category).orElseThrow(() -> new GlobalException(ProductResultCodeEnum.NO_SUCH_NODE));
+        // 查询该节点是否有子节点 有子节点无法删除 层级最多为3层
+        if (!category.getCatLevel().equals(CategoryConstant.THIRD_LEVEN)) {
+            List<Category> categoryList = categoryMapper.selectList(new LambdaQueryWrapper<Category>().eq(Category::getParentCid, cartId));
+            log.info("categoryList：{}", categoryList);
+            if (!categoryList.isEmpty()) {
+                throw new GlobalException(ProductResultCodeEnum.NODE_ERROR);
+            }
+        }
+        categoryMapper.deleteById(cartId);
+        return true;
     }
 
 

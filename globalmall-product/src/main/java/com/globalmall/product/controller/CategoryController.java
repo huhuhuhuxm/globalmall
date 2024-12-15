@@ -9,9 +9,7 @@ import lombok.RequiredArgsConstructor;
 import lombok.experimental.FieldDefaults;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -37,6 +35,17 @@ public class CategoryController {
     public Result<List<CategoryTreeVO>> getCategoryTreeList() {
         List<CategoryTreeVO> categoryList = categoryService.listWithTree();
         return Result.success(categoryList);
+    }
+
+    /**
+     * 删除某个分类
+     * @param cartId
+     * @return
+     */
+    @DeleteMapping("/{cartId}")
+    public Result deleteCategory(@PathVariable Long cartId) {
+        boolean isDelete = categoryService.deleteCategory(cartId);
+        return Result.success(isDelete);
     }
 
 }

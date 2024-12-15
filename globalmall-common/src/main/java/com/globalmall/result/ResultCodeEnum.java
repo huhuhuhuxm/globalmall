@@ -1,5 +1,6 @@
 package com.globalmall.result;
 
+import com.globalmall.exception.IResultCode;
 import lombok.Getter;
 
 /**
@@ -9,7 +10,7 @@ import lombok.Getter;
  * @date 2024/11/9 13:56
  */
 @Getter
-public enum ResultCodeEnum {
+public enum ResultCodeEnum implements IResultCode {
     SUCCESS(200,"成功"),
     FAIL(201, "失败"),
     SERVICE_ERROR(2012, "服务异常"),

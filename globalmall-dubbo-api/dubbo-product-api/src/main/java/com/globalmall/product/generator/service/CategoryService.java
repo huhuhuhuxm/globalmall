@@ -19,4 +19,10 @@ public interface CategoryService extends IService<Category> {
      */
     List<CategoryTreeVO> listWithTree();
 
+    /**
+     * 删除某个分类
+     * @param cartId
+     * @return
+     */
+    boolean deleteCategory(Long cartId);
 }
