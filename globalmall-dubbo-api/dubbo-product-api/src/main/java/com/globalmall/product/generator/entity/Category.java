@@ -1,9 +1,6 @@
 package com.globalmall.product.generator.entity;
 
-import com.baomidou.mybatisplus.annotation.IdType;
-import com.baomidou.mybatisplus.annotation.TableField;
-import com.baomidou.mybatisplus.annotation.TableId;
-import com.baomidou.mybatisplus.annotation.TableName;
+import com.baomidou.mybatisplus.annotation.*;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.experimental.SuperBuilder;
@@ -43,7 +40,9 @@ public class Category implements Serializable {
 
     /**
      * 是否显示[0-不显示，1显示]
+     * 逻辑删除字段 TODO 这边字段名命名不合理
      */
+    @TableLogic(value = "1", delval = "0")
     private Integer showStatus;
 
     /**

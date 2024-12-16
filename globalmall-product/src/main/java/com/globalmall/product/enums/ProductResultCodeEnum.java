@@ -11,8 +11,10 @@ import lombok.Getter;
  */
 @Getter
 public enum ProductResultCodeEnum implements IResultCode {
-    NODE_ERROR( 217, "该分类下有子分类，不可以删除"),
-    NO_SUCH_NODE(218, "没有该分类")
+    CATEGORY_ERROR( 217, "该分类下有子分类，不可以删除"),
+    NO_SUCH_CATEGORY(218, "没有该分类"),
+    NO_MATCHING_CATEGORY(219, "没有符合条件的分类"),
+    NO_CATEGORIES_MATCH_DELETE_CONDITIONS(220, "没有符合删除条件的分类")
     ;
 
     private Integer code;

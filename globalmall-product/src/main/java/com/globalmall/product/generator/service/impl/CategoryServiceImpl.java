@@ -17,27 +17,26 @@ import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.Comparator;
-import java.util.List;
-import java.util.Optional;
+import java.util.*;
 
 
 /**
-* @author hxm
-* @description 针对表【pms_category(商品三级分类)】的数据库操作Service实现
-* @createDate 2024-10-18 12:53:16
-*/
+ * @author hxm
+ * @description 针对表【pms_category(商品三级分类)】的数据库操作Service实现
+ * @createDate 2024-10-18 12:53:16
+ */
 @Slf4j
 @Service
 @FieldDefaults(level = AccessLevel.PRIVATE, makeFinal = true)
 @RequiredArgsConstructor(onConstructor = @__(@Autowired))
 public class CategoryServiceImpl extends ServiceImpl<CategoryMapper, Category>
-    implements CategoryService {
+        implements CategoryService {
 
     CategoryMapper categoryMapper;
 
     /**
      * 查询出所有商品分类，结果以树形结构返回
+     *
      * @return
      */
     @Override
@@ -47,7 +46,7 @@ public class CategoryServiceImpl extends ServiceImpl<CategoryMapper, Category>
         // 构建树形返回结构
         List<CategoryTreeVO> CategoryTreeList = categoryList.stream()
                 .filter((item) -> item.getParentCid().equals(0L)) // 删选出父级菜单
-                .map((item)-> {
+                .map((item) -> {
                     CategoryTreeVO categoryTreeVO = new CategoryTreeVO();
                     BeanUtils.copyProperties(item, categoryTreeVO);
                     categoryTreeVO.setChildren(this.getChildren(item.getCatId(), categoryList));
@@ -59,31 +58,43 @@ public class CategoryServiceImpl extends ServiceImpl<CategoryMapper, Category>
     }
 
     /**
-     * 删除某分类
-     * @param cartId
+     * 批量删除某分类
+     *
+     * @param cartIds
      * @return
      */
     @Override
-    public boolean deleteCategory(Long cartId) {
-        // 查询数据库中是否有该分类
-        Category category = categoryMapper.selectById(cartId);
-        // 查询为空就抛出异常
-        Optional.ofNullable(category).orElseThrow(() -> new GlobalException(ProductResultCodeEnum.NO_SUCH_NODE));
-        // 查询该节点是否有子节点 有子节点无法删除 层级最多为3层
-        if (!category.getCatLevel().equals(CategoryConstant.THIRD_LEVEN)) {
-            List<Category> categoryList = categoryMapper.selectList(new LambdaQueryWrapper<Category>().eq(Category::getParentCid, cartId));
-            log.info("categoryList：{}", categoryList);
-            if (!categoryList.isEmpty()) {
-                throw new GlobalException(ProductResultCodeEnum.NODE_ERROR);
+    public boolean deleteCategories(Long[] cartIds) {
+        // 筛选出符合删除条件的cartId
+        List<Long> list = Arrays.stream(cartIds).distinct().filter(cartId -> cartId >= 0).filter(cartId -> {
+            Category category = categoryMapper.selectById(cartId);
+            log.info("category：{}", category);
+            if (category == null) {
+                return false;
             }
+            // 查询该节点是否有子节点 有子节点无法删除 层级最多为3层
+            if (!category.getCatLevel().equals(CategoryConstant.THIRD_LEVEN)) {
+                List<Category> categoryList = categoryMapper.selectList(new LambdaQueryWrapper<Category>().eq(Category::getParentCid, cartId));
+                log.info("categoryList：{}", categoryList);
+                if (!categoryList.isEmpty()) {
+                    return false;
+                }
+            }
+            return true;
+        }).toList();
+        log.info("符合删除条件的cartId：{}", list);
+        // 逻辑删除 把Category对象中的showStatus当做逻辑删除字段
+        if (list.isEmpty()) {
+            throw new GlobalException(ProductResultCodeEnum.NO_CATEGORIES_MATCH_DELETE_CONDITIONS);
         }
-        categoryMapper.deleteById(cartId);
+        categoryMapper.deleteByIds(list);
         return true;
     }
 
 
     /**
      * 选出子节点 利用递归
+     *
      * @param parentCid
      * @param categoryList
      * @return

@@ -20,9 +20,9 @@ public interface CategoryService extends IService<Category> {
     List<CategoryTreeVO> listWithTree();
 
     /**
-     * 删除某个分类
-     * @param cartId
+     * 批量删除分类
+     * @param cartIds
      * @return
      */
-    boolean deleteCategory(Long cartId);
+    boolean deleteCategories(Long[] cartIds);
 }
