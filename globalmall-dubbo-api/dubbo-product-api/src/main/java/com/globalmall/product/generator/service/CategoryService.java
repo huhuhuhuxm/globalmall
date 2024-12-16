@@ -20,7 +20,7 @@ public interface CategoryService extends IService<Category> {
     List<CategoryTreeVO> listWithTree();
 
     /**
-     * 批量删除分类
+     * 批量删除分类节点
      * @param cartIds
      * @return
      */

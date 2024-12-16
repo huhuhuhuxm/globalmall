@@ -38,11 +38,11 @@ public class CategoryController {
     }
 
     /**
-     * 批量删除分类
+     * 批量删除分类节点
      * @param cartIds
      * @return
      */
-    @PostMapping("/delete")
+    @DeleteMapping("/deleteCategories")
     public Result deleteCategories(@RequestBody Long[] cartIds) {
         boolean isDelete = categoryService.deleteCategories(cartIds);
         return Result.success(isDelete);

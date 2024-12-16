@@ -58,7 +58,7 @@ public class CategoryServiceImpl extends ServiceImpl<CategoryMapper, Category>
     }
 
     /**
-     * 批量删除某分类
+     * 批量删除分类节点
      *
      * @param cartIds
      * @return
